@@ -1,22 +1,24 @@
-# Animepahe-dl
+# Animepahe-dl  💻🎥
 
-This is a python script that allows you to search for anime, view the available episodes, and download them from the website animepahe.ru.
+This is a python script that allows you to search for anime, view the available episodes, and download them from the website animepahe.ru 🔍📥
 
-## Requirements
+Made with ❤️ by IsNoobGrammer
 
-- Python 3
-- requests
-- re
-- pandas
+## Requirements 🧾
+
+- Python 3🐍
+- requests 🌐
+- re 🔍
+- pandas 🐼
 
 
-## Installation
+## Installation 🛠️
 
 You can install these libraries using `pip`, the Python package manager. For example:
 `pip [pip3] install requests pandas`
 
 
-## Usage as a script
+## Usage as a script 💻
 
 To use this script, open a terminal and navigate to the directory where the script is saved. Then, run the script using the `python` command, followed by the name of the script.
 
@@ -27,11 +29,10 @@ Select the anime that you want to download by entering its number in the list. Y
 And it will return its direct link.
 
 
-
-## Using as a module
+## Using as a module 📚
 To use this script in your project, simply copy the code into a `[name].py` file and import it using `from [name] import [functions] `.
 
-## Functions
+## Functions 🧑‍💼
 
 - `search_apahe(query: str) -> list`: Searches for anime with the given query and returns a list of search results. Each result is a list containing the following information about the anime:
   - Title
@@ -49,7 +50,7 @@ To use this script in your project, simply copy the code into a `[name].py` file
   - Link
 - `dl_apahe2(url: str) -> str`: Given a redirect link, follows the link and returns the final download link.
 
-## Example usage
+## Example usage 💡
 
 ```python
 import animepahe
@@ -84,5 +85,5 @@ final_link = animepahe.dl_apahe2(download_links[0][-1])
 print(final_link)
 ```
 
-# Disclaimer
+# Disclaimer 🚨🚨
 This script is for educational purposes only. We do not endorse or encourage the illegal download of copyrighted material. Please support the official release of the anime.Please respect the terms of service of animepahe and use animepahe responsibly
