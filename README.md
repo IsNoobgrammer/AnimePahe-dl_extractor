@@ -1,57 +1,88 @@
-# AnimePahe-dl
+# Animepahe-dl
 
-Welcome to the animepahe package! This package allows you to search for and download anime from the website animepahe.ru.
+This is a python script that allows you to search for anime, view the available episodes, and download them from the website animepahe.ru.
 
-## Finding your Chrome version
+## Requirements
 
-In order to use the chromedriver that is required for this package, you will need to ensure that you have the correct version of Chrome installed on your machine. To find your Chrome version:
+- Python 3
+- requests
+- re
+- pandas
 
-1. Open Chrome
-2. Click on the three dots in the top right corner of the window
-3. Click on "Help"
-4. Click on "About Google Chrome"
-5. Your Chrome version will be displayed on this page
 
-## Downloading chromedriver
+## Installation
 
-In order to use the chromedriver with this package, you will need to download it from the following link:
+You can install these libraries using `pip`, the Python package manager. For example:
+`pip [pip3] install requests pandas`
 
-https://chromedriver.chromium.org/downloads
 
-Be sure to download the version of chromedriver that corresponds to the version of Chrome that you have installed.
+## Usage as a script
 
-## Finding the path to your Chrome executable
+To use this script, open a terminal and navigate to the directory where the script is saved. Then, run the script using the `python` command, followed by the name of the script.
 
-To find the path to your Chrome executable:
+For example: `python animepahe.py`
+You will be prompted to enter the name of an anime that you want to search for. Type in the name of the anime and press Enter. The script will search animepahe.ru for anime matching your search query, and display a list of results.
 
-1. Open Chrome
-2. Click on the three dots in the top right corner of the window
-3. Click on "Help"
-4. Click on "About Google Chrome"
-5. Click on the "Details" button
-6. The path to the Chrome executable will be listed under the "Executable Path" heading
+Select the anime that you want to download by entering its number in the list. You will be asked to select an episode to download. Enter the number of the episode that you want to download.
+And it will return its direct link.
 
-## Changing the base URL
 
-If the base URL for `animepahe.ru` is no longer working, you can change it to a different URL by modifying the `url` variable at the beginning of the script. Simply replace `https://animepahe.ru/` with the desired base URL.
 
-## Using the package
+## Using as a module
+To use this script in your project, simply copy the code into a `[name].py` file and import it using `from [name] import [functions] `.
 
-To use the animepahe package, import the necessary functions and call them with the appropriate parameters. For example:
+## Functions
 
+- `search_apahe(query: str) -> list`: Searches for anime with the given query and returns a list of search results. Each result is a list containing the following information about the anime:
+  - Title
+  - Type
+  - Number of episodes
+  - Status
+  - Year
+  - Score
+  - Session ID
+- `mid_apahe(sid: str) -> list`: Given the session ID of an anime, returns a list of episode IDs.
+- `dl_apahe1(ok: str) -> list`: Given the episode ID, returns a list of lists containing information about the available download links:
+  - Quality
+  - Size (in MB)
+  - Language
+  - Link
+- `dl_apahe2(url: str) -> str`: Given a redirect link, follows the link and returns the final download link.
+
+## Example usage
+
+```python
+import animepahe
+
+# Search for anime with the query "ghoul"
+results = animepahe.search_apahe("ghoul")
+
+# Print the search results
+for result in results:
+    print(result[0])  # Print the title of the anime
+
+# Get the session ID of the first search result
+session_id = results[0][-1]
+
+# Get the episode IDs of the anime with the given session ID
+episode_ids = animepahe.mid_apahe(session_id)
+
+# Print the episode IDs
+print(episode_ids)
+
+# Get the download links for the first episode
+download_links = animepahe.dl_apahe1(episode_ids[0])
+
+# Print the download links
+for link in download_links:
+    print(link[0], link[1], link[2], link[3])
+    
+    
+# Get the final download link for the first link in the list
+final_link = animepahe.dl_apahe2(download_links[0][-1])
+
+print(final_link)
 ```
-from animepahe import search_apahe, mid_apahe, dl_apahe1, dl_apahe2
 
-# Search for anime with a given query
-results = search_apahe("ghoul")
-
-# Get a list of episode IDs for a given session ID
-episodes = mid_apahe('9bc185ce-c098-8379-b5b6-2fccf1986cf6')
-
-# Get a list of download links for a given episode ID
-links = dl_apahe1('episode_id')
-
-# Follow a redirect link to get the final download link
-download_link = dl_apahe2('redirect_link')
-
-```
+# Disclaimer
+This script is for educational purposes only. We do not endorse or encourage the illegal download of copyrighted material. Please support the official release of the anime.Please respect the terms of service of animepahe and use animepahe responsibly
