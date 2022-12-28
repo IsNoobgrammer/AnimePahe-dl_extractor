@@ -1,4 +1,4 @@
-# animepahe
+# AnimePahe-dl
 
 Welcome to the animepahe package! This package allows you to search for and download anime from the website animepahe.ru.
 
