@@ -33,7 +33,7 @@ To find the path to your Chrome executable:
 
 ## Changing the base URL
 
-If the base URL for animepahe.ru is no longer working, you can change it to a different URL by modifying the `url` variable at the beginning of the script. Simply replace `https://animepahe.ru/` with the desired base URL.
+If the base URL for `animepahe.ru` is no longer working, you can change it to a different URL by modifying the `url` variable at the beginning of the script. Simply replace `https://animepahe.ru/` with the desired base URL.
 
 ## Using the package
 
