@@ -1,3 +1,9 @@
+# Disclaimer 🚨🚨
+This Repositry Will be not maintained >> Shank You
+New Version Is available at 
+`https://github.com/IsNoobgrammer/AnimeDownloader`
+
+
 # Animepahe-dl  💻🎥
 
 This is a python script that allows you to search for anime, view the available episodes, and download them from the website animepahe.ru 🔍📥
